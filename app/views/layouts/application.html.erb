@@ -28,7 +28,7 @@
             <% if user_signed_in? %>
             <li class="nav-item">
               <%= link_to user_path(current_user), class: 'nav-link text-white' do %>
-                <i class="fa-solid fa-house-chimney"></i>Home
+                <i class="fa-solid fas fa-home"></i>Home
               <% end %>
             </li>
             <li class="nav-item">
@@ -43,13 +43,13 @@
             </li>
             <li class="nav-item">
               <%= link_to  destroy_user_session_path, method: :delete, class: 'nav-link text-white' do %>
-                <i class="fa-solid fa-right-from-bracket"></i>Log out
+                <i class="fa-solid fa-sign-out-alt"></i>Log out
               <% end %>
             </li>
             <% else %>
             <li class="nav-item">
               <%= link_to root_path, class: 'nav-link text-white' do %>
-                <i class="fa-solid fa-house-chimney"></i>Home
+                <i class="fa-solid fa-home"></i>Home
               <% end %>
             <li class="nav-item">
               <%= link_to about_path, class: 'nav-link text-white' do %>
@@ -63,7 +63,7 @@
             </li>
             <li class="nav-item">
               <%= link_to user_session_path, class: 'nav-link text-white' do %>
-                <i class="fa-solid fa-right-to-bracket"></i>Sign in
+                <i class="fa-solid fa-sign-in-alt"></i>Log in
               <% end %>
             </li>
             <% end %>
@@ -72,6 +72,9 @@
         </div>
       </nav>
     </header>
+    <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "#{key}") %>
+  <% end %>
     <main class="mb-auto">
     <%= yield %>
     </main>

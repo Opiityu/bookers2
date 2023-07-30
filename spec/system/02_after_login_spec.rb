@@ -172,7 +172,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
         expect { click_button 'Create Book' }.to change(user.books, :count).by(1)
       end
     end
-    
+
     # === ユーザーが本の投稿者である場合に編集画面に遷移する ===
     # BooksController > editのロジックが破綻していないかの妥当性を兼ねる
     # ==========================================================
@@ -180,7 +180,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
       it '編集画面に遷移する' do
         second_user_book = FactoryBot.create(:book, user: user) # 「user」の投稿をもう一つ作成
         visit book_path(second_user_book)
-        click_link 'Edit'
+        click_link 'Edit' 
         expect(current_path).to eq edit_book_path(second_user_book)
       end
     end
